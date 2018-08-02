@@ -1,4 +1,4 @@
-{% set version = "1.2" %}
+{% set version = "2.4" %}
 {% set name = "gf2x" %}
 
 package:
@@ -14,7 +14,7 @@ source:
 
 
 build:
-  number: 2
+  number: 0
   skip: true        # [win]
   track_features:
     - gf2x
