@@ -20,11 +20,16 @@ case `uname` in
         clang --version
         llvm-as --version
         llvm-ar --version
-        ./configure --prefix="$PREFIX/Library" --libdir="$PREFIX/Library/lib" --disable-hardware-specific-code --disable-static
+        ./configure --prefix="$PREFIX/Library" --libdir="$PREFIX/Library/lib" --disable-hardware-specific-code
         ;;
 esac
 
 
-make
-make check
+make -j${CPU_COUNT}
+make check -j${CPU_COUNT}
 make install
+
+if [[ `uname` == MINGW* ]]; then
+    mv "$LIBRARY_LIB/gf2x.lib" "$LIBRARY_LIB/gf2x_static.lib"
+    mv "$LIBRARY_LIB/gf2x.dll.lib" "$LIBRARY_LIB/gf2x.lib"
+fi
