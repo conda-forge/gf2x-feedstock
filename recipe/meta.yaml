@@ -11,11 +11,12 @@ source:
   patches:
     # patches from https://github.com/sagemath/sage
     - patches/0001-generic_really_is_generic.patch
+    - patches/dll.patch
 
 
 build:
-  number: 2
-  skip: true        # [win]
+  number: 3
+  skip: True    # [win and vc<14]
   track_features:
     - gf2x
   run_exports:
@@ -25,15 +26,27 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - libtool
-    - automake
+    - libtool                   # [unix]
+    - automake                  # [unix]
+    - posix                     # [win]
+    - clangdev                  # [win]
+    - lld                       # [win]
+    - m2-automake-wrapper       # [win]
+    - m2-libtool                # [win]
+    - m2-autoconf               # [win]
+    - m2-make                   # [win]
+    - m2-m4                     # [win]
 
 test:
   commands:
-    - test -f $PREFIX/include/gf2x.h
-    - test -f $PREFIX/lib/lib{{ name }}.a
+    - test -f $PREFIX/include/gf2x.h               # [unix]
+    - test -f $PREFIX/lib/lib{{ name }}.a          # [unix]
     - test -f $PREFIX/lib/lib{{ name }}.so         # [linux]
     - test -f $PREFIX/lib/lib{{ name }}.dylib      # [osx]
+    - if not exist %LIBRARY_BIN%\\gf2x-1.dll exit 1         # [win]
+    - if not exist %LIBRARY_LIB%\\gf2x.lib exit 1           # [win]
+    - if not exist %LIBRARY_LIB%\\gf2x_static.lib exit 1    # [win]
+    - if not exist %LIBRARY_INC%\\gf2x.h exit 1             # [win]
 
 about:
   home: http://gf2x.gforge.inria.fr
