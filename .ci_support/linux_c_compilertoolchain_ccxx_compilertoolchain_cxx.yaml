@@ -1,3 +1,5 @@
+build_number_decrement:
+- '1000'
 c_compiler:
 - toolchain_c
 channel_sources:
@@ -10,3 +12,10 @@ docker_image:
 - condaforge/linux-anvil
 gf2x:
 - '1.2'
+zip_keys:
+- - c_compiler
+  - cxx_compiler
+  - channel_sources
+  - channel_targets
+  - docker_image
+  - build_number_decrement
