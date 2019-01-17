@@ -27,7 +27,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - libtool                   # [unix]
-    - automake                  # [unix]
+    - autoconf                  # [unix or osx]
+    - automake                  # [unix or osx]
     - posix                     # [win]
     - clangdev                  # [win]
     - lld                       # [win]

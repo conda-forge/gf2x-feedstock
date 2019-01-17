@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-chmod +x configure
+autoreconf -ivf
 
 export CFLAGS="-O2 -g $CFLAGS"
 
