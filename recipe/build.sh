@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-autoreconf -ivf
+if [[ $(uname) == Darwin || $(uname) == Linux ]]; then 
+  autoreconf -ivf
+else
+  chmod +x configure
+fi
 
 export CFLAGS="-O2 -g $CFLAGS"
 
