@@ -4,15 +4,14 @@
 package:
   name: {{ name }}
   version: {{ version }}
+
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://gforge.inria.fr/frs/download.php/file/36934/{{ name }}-{{ version }}.tar.gz
   sha256: 61427ffa03b5006aa154def6dce8bcff0fdefb3bd72f43fb1a7b4fdd6b80db34
   patches:
     # patches from https://github.com/sagemath/sage
     - patches/0001-generic_really_is_generic.patch
     - patches/dll.patch
-
 
 build:
   number: 1003
@@ -28,6 +27,9 @@ requirements:
     - {{ compiler('cxx') }}
     - libtool                   # [unix]
     - automake                  # [unix]
+    - autoconf                  # [unix]
+    - make                      # [unix]
+    - m4                        # [unix]
     - posix                     # [win]
     - clangdev                  # [win]
     - lld                       # [win]
