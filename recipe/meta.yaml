@@ -23,6 +23,9 @@ requirements:
     - {{ compiler('cxx') }}
     - libtool                   # [unix]
     - automake                  # [unix]
+    - autoconf                  # [unix]
+    - make                      # [unix]
+    - m4                        # [unix]
     - posix                     # [win]
     - clangdev                  # [win]
     - lld                       # [win]
