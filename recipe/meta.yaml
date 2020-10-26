@@ -26,19 +26,12 @@ requirements:
     - autoconf                  # [unix]
     - make                      # [unix]
     - m4                        # [unix]
-    - posix                     # [win]
-    - clangdev                  # [win]
-    - lld                       # [win]
-    - m2-automake-wrapper       # [win]
-    - m2-libtool                # [win]
-    - m2-autoconf               # [win]
-    - m2-make                   # [win]
-    - m2-m4                     # [win]
+    - autotools_clang_conda     # [win]
 
 test:
   commands:
     - test -f $PREFIX/include/gf2x.h               # [unix]
-    - test -f $PREFIX/lib/lib{{ name }}.a          # [unix]
+    - test ! -f $PREFIX/lib/lib{{ name }}.a        # [unix]
     - test -f $PREFIX/lib/lib{{ name }}.so         # [linux]
     - test -f $PREFIX/lib/lib{{ name }}.dylib      # [osx]
     - if not exist %LIBRARY_BIN%\\gf2x-1.dll exit 1         # [win]
