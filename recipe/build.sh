@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-autoreconf -i
+autoreconf -vfi
 chmod +x configure
 
 export CFLAGS="-g $CFLAGS"
@@ -13,5 +13,7 @@ else
 fi
 
 make -j${CPU_COUNT}
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
 make check -j${CPU_COUNT}
+fi
 make install
