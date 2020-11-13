@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-autoreconf -i
+autoreconf -vfi
 chmod +x configure
 
 export CFLAGS="-g $CFLAGS"
