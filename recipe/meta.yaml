@@ -10,7 +10,7 @@ source:
   sha256: 741694fac29d56edf58b42dc9827c85303090522ccdd1e89c311c6b22c290efa
 
 build:
-  number: 1
+  number: 2
   skip: True    # [win and vc<14]
   track_features:
     - gf2x
@@ -42,8 +42,10 @@ test:
 about:
   home: http://gf2x.gforge.inria.fr
   dev_url: http://gforge.inria.fr/projects/gf2x/
-  license: GPL v2+
-  license_file: COPYING
+  license: LGPL-2.1-or-later
+  license_file:
+    - COPYING
+    - COPYING.LIB
   summary: gf2x is a library for multiplying polynomials over the binary field.
   description: |
     gf2x is a C/C++ software package containing routines for fast arithmetic
