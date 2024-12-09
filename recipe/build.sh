@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+autoreconf -vfi
+chmod +x configure
+
 ./configure --prefix="$PREFIX" --libdir="$PREFIX"/lib --disable-hardware-specific-code --disable-static || cat config.log
 
 make -j${CPU_COUNT}
