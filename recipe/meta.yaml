@@ -11,8 +11,6 @@ source:
 
 build:
   number: 3
-  track_features:
-    - gf2x
   run_exports:
     - {{ pin_subpackage('gf2x', max_pin='x.x') }}
 
@@ -20,12 +18,15 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - libtool                   # [unix]
     - automake                  # [unix]
     - autoconf                  # [unix]
     - make                      # [unix]
     - m4                        # [unix]
     - autotools_clang_conda     # [win]
+  host:
+  run:
 
 test:
   commands:
