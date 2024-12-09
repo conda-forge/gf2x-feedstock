@@ -1,0 +1,18 @@
+--- config/acinclude.m4.bak	2024-12-09 18:09:40.942240452 +0530
++++ config/acinclude.m4	2024-12-09 18:29:15.495304644 +0530
+@@ -661,6 +661,7 @@
+ # remove anything that might look like compiler output to our "||" expression
+ rm -f conftest* a.out b.out a.exe a_out.exe
+ cat >conftest.c <<EOF
++#include <stdlib.h>
+ int
+ main ()
+ {
+@@ -699,6 +700,7 @@
+ AC_CACHE_CHECK([for build system executable suffix],
+                gf2x_cv_prog_exeext_for_build,
+ [cat >conftest.c <<EOF
++#include <stdlib.h>
+ int
+ main ()
+ {
