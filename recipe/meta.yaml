@@ -37,7 +37,7 @@ test:
     - test ! -f $PREFIX/lib/lib{{ name }}.a        # [unix]
     - test -f $PREFIX/lib/lib{{ name }}.so         # [linux]
     - test -f $PREFIX/lib/lib{{ name }}.dylib      # [osx]
-    - if not exist %LIBRARY_BIN%\\gf2x-1.dll exit 1         # [win]
+    - if not exist %LIBRARY_BIN%\\gf2x-3.dll exit 1         # [win]
     - if not exist %LIBRARY_LIB%\\gf2x.lib exit 1           # [win]
     - if exist %LIBRARY_LIB%\\gf2x_static.lib exit 1        # [win]
     - if not exist %LIBRARY_INC%\\gf2x.h exit 1             # [win]
