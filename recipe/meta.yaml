@@ -10,8 +10,7 @@ source:
   sha256: 741694fac29d56edf58b42dc9827c85303090522ccdd1e89c311c6b22c290efa
 
 build:
-  number: 2
-  skip: True    # [win and vc<14]
+  number: 3
   track_features:
     - gf2x
   run_exports:
@@ -36,7 +35,7 @@ test:
     - test -f $PREFIX/lib/lib{{ name }}.dylib      # [osx]
     - if not exist %LIBRARY_BIN%\\gf2x-1.dll exit 1         # [win]
     - if not exist %LIBRARY_LIB%\\gf2x.lib exit 1           # [win]
-    - if not exist %LIBRARY_LIB%\\gf2x_static.lib exit 1    # [win]
+    - if exist %LIBRARY_LIB%\\gf2x_static.lib exit 1        # [win]
     - if not exist %LIBRARY_INC%\\gf2x.h exit 1             # [win]
 
 about:
