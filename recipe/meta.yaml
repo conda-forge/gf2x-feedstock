@@ -8,6 +8,8 @@ package:
 source:
   url: https://gitlab.inria.fr/gf2x/gf2x/-/archive/gf2x-{{ version }}/gf2x-gf2x-{{ version }}.tar.bz2
   sha256: 741694fac29d56edf58b42dc9827c85303090522ccdd1e89c311c6b22c290efa
+  patches:
+    - fix-exit.diff
 
 build:
   number: 3

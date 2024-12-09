@@ -1,0 +1,11 @@
+--- config/acinclude.m4	2024-12-09 18:09:40.942240452 +0530
++++ config/acinclude.m4	2024-12-09 18:09:14.394373650 +0530
+@@ -661,6 +661,7 @@
+ # remove anything that might look like compiler output to our "||" expression
+ rm -f conftest* a.out b.out a.exe a_out.exe
+ cat >conftest.c <<EOF
++#include <stdlib.h>
+ int
+ main ()
+ {
+
